@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info/
+
+# Virtual environments
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Local experiment tracking and generated artifacts
+mlruns/
+tmp/
+mlflow.db
+
+# Working notebook copies
+Challenge AB Invenv - Víctor Tablas - Copy.ipynb
+Challenge AB Invenv - Víctor Tablas copy2.ipynb
