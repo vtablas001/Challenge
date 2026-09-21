@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from mmm.models import ModelSpecification, fit_panel_model
+from mmm.models import ModelSpecification, control_columns, fit_panel_model
 
 
 def test_media_coefficients_are_bounded_not_selected_by_sign():
@@ -37,3 +37,12 @@ def test_media_coefficients_are_bounded_not_selected_by_sign():
     assert "media__test" in model.coefficients.index
     assert model.coefficients["media__test"] >= 0
     assert np.isclose(model.coefficients["media__test"], 0.0)
+
+
+def test_main_specification_excludes_annual_harmonics_by_default():
+    numeric, categorical = control_columns(ModelSpecification("main"))
+
+    assert "week_sin" not in numeric
+    assert "week_cos" not in numeric
+    assert "trend" in numeric
+    assert categorical == ["brand", "region", "subchannel"]

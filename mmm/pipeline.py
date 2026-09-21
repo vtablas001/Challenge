@@ -106,6 +106,7 @@ def _specifications() -> dict[str, ModelSpecification]:
         "A5 - MMM calibrado exploratorio individual": ModelSpecification(
             "A5 - MMM calibrado exploratorio individual",
             include_media=True,
+            seasonality="harmonic",
             constrain_media=False,
         ),
         "A6 - MMM calibrado + smearing subcanal": ModelSpecification(
@@ -411,6 +412,7 @@ def run_pipeline(
         n_trials=n_trials,
         seed=seed,
         storage=optuna_storage,
+        study_name="mmm_joint_calibration_no_harmonics",
     )
     parameter_path = output_dir / "hiperparametros_paso4.json"
     save_calibration(calibration, parameter_path)

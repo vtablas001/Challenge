@@ -1,11 +1,11 @@
 {
-  "rmse_validacion_standard": 1726.8300492817627,
-  "rmse_validacion_calibrated": 1703.09953994013,
-  "standard_loss_pct": 1.3933718367669226,
+  "rmse_validacion_standard": 1674.6628048859075,
+  "rmse_validacion_calibrated": 1639.8472196267237,
+  "standard_loss_pct": 2.1230993255035546,
   "selected_model": "Paso 3 - MMM estandar",
   "rule": "Prefer standard when its validation RMSE is at most 5% worse",
-  "paso4_rmse_gap_vs_naive_hl": 361.100004233659,
-  "A4_rmse_gap_vs_naive_hl": -302.6297239738226,
-  "A4_gap_reduction_vs_naive_pct": 183.80773204809998,
+  "paso4_rmse_gap_vs_naive_hl": 394.1658201517263,
+  "A4_rmse_gap_vs_naive_hl": -357.766632546149,
+  "A4_gap_reduction_vs_naive_pct": 190.76551396781025,
   "lag52_affected_series": 1
 }

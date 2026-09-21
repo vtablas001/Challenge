@@ -17,7 +17,7 @@ class ModelSpecification:
     name: str
     include_media: bool = False
     include_lag52: bool = False
-    seasonality: str = "harmonic"
+    seasonality: str = "none"
     fixed_effects: str = "additive"
     constrain_media: bool = True
 
@@ -116,7 +116,7 @@ def control_columns(specification: ModelSpecification) -> tuple[list[str], list[
     categorical: list[str]
     if specification.seasonality == "harmonic":
         numeric.extend(["week_sin", "week_cos"])
-    elif specification.seasonality == "week_indicators":
+    elif specification.seasonality in {"week_indicators", "none"}:
         pass
     else:
         raise ValueError(f"Unknown seasonality: {specification.seasonality}")

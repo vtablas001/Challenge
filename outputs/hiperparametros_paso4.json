@@ -1,6 +1,6 @@
 {
   "objective": "mean expanding-window RMSE in hL",
-  "best_value": 1703.09953994013,
+  "best_value": 1639.8472196267237,
   "validation_windows": [
     {
       "start": "2024-11-30",
@@ -17,74 +17,74 @@
   ],
   "parameters": {
     "cinema": {
-      "theta": 0.7,
+      "theta": 0.5,
       "alpha": 1.0,
-      "gamma_quantile": 0.25
+      "gamma_quantile": 0.5
     },
     "digitaldisplayandsearch": {
-      "theta": 0.7,
-      "alpha": 1.0,
-      "gamma_quantile": 0.25
+      "theta": 0.5,
+      "alpha": 2.0,
+      "gamma_quantile": 0.75
     },
     "digitalvideo": {
-      "theta": 0.7,
-      "alpha": 2.0,
-      "gamma_quantile": 0.25
+      "theta": 0.3,
+      "alpha": 1.0,
+      "gamma_quantile": 0.75
     },
     "facebook": {
       "theta": 0.3,
       "alpha": 2.0,
-      "gamma_quantile": 0.5
+      "gamma_quantile": 0.25
     },
     "instagram": {
-      "theta": 0.7,
-      "alpha": 1.0,
-      "gamma_quantile": 0.75
+      "theta": 0.5,
+      "alpha": 2.0,
+      "gamma_quantile": 0.25
     },
     "localtv": {
       "theta": 0.3,
-      "alpha": 1.0,
+      "alpha": 2.0,
       "gamma_quantile": 0.25
     },
     "ooh": {
-      "theta": 0.7,
+      "theta": 0.5,
       "alpha": 2.0,
       "gamma_quantile": 0.5
     },
     "opentv": {
       "theta": 0.3,
+      "alpha": 2.0,
+      "gamma_quantile": 0.25
+    },
+    "paytv": {
+      "theta": 0.5,
       "alpha": 1.0,
       "gamma_quantile": 0.75
     },
-    "paytv": {
-      "theta": 0.7,
-      "alpha": 1.0,
-      "gamma_quantile": 0.5
-    },
     "print": {
-      "theta": 0.5,
+      "theta": 0.7,
       "alpha": 2.0,
-      "gamma_quantile": 0.5
+      "gamma_quantile": 0.75
     },
     "radio": {
       "theta": 0.3,
-      "alpha": 1.0,
-      "gamma_quantile": 0.75
-    },
-    "tiktok": {
-      "theta": 0.7,
-      "alpha": 1.0,
-      "gamma_quantile": 0.5
-    },
-    "twitter": {
-      "theta": 0.7,
-      "alpha": 2.0,
-      "gamma_quantile": 0.5
-    },
-    "youtube": {
-      "theta": 0.7,
       "alpha": 2.0,
       "gamma_quantile": 0.25
+    },
+    "tiktok": {
+      "theta": 0.3,
+      "alpha": 2.0,
+      "gamma_quantile": 0.75
+    },
+    "twitter": {
+      "theta": 0.3,
+      "alpha": 2.0,
+      "gamma_quantile": 0.25
+    },
+    "youtube": {
+      "theta": 0.3,
+      "alpha": 2.0,
+      "gamma_quantile": 0.5
     }
   },
   "seed": 2026,
@@ -92,88 +92,88 @@
   "recorded_trials": 2000,
   "resolved_for_development_fit": {
     "cinema": {
-      "theta": 0.7,
+      "theta": 0.5,
       "alpha": 1.0,
-      "gamma_quantile": 0.25,
-      "gamma": 2.9472903542402623e-06
+      "gamma_quantile": 0.5,
+      "gamma": 1.1384548485932834e-06
     },
     "digitaldisplayandsearch": {
-      "theta": 0.7,
-      "alpha": 1.0,
-      "gamma_quantile": 0.25,
-      "gamma": 2.7069316921339137
+      "theta": 0.5,
+      "alpha": 2.0,
+      "gamma_quantile": 0.75,
+      "gamma": 6.6289860614361
     },
     "digitalvideo": {
-      "theta": 0.7,
-      "alpha": 2.0,
-      "gamma_quantile": 0.25,
-      "gamma": 1.4902862121565128
+      "theta": 0.3,
+      "alpha": 1.0,
+      "gamma_quantile": 0.75,
+      "gamma": 2.639798623346193
     },
     "facebook": {
       "theta": 0.3,
       "alpha": 2.0,
-      "gamma_quantile": 0.5,
-      "gamma": 4.784633345579332
+      "gamma_quantile": 0.25,
+      "gamma": 2.3057143144659884
     },
     "instagram": {
-      "theta": 0.7,
-      "alpha": 1.0,
-      "gamma_quantile": 0.75,
-      "gamma": 16.90863662684052
+      "theta": 0.5,
+      "alpha": 2.0,
+      "gamma_quantile": 0.25,
+      "gamma": 2.726775834776434
     },
     "localtv": {
       "theta": 0.3,
-      "alpha": 1.0,
+      "alpha": 2.0,
       "gamma_quantile": 0.25,
       "gamma": 0.19723580702121518
     },
     "ooh": {
-      "theta": 0.7,
-      "alpha": 2.0,
-      "gamma_quantile": 0.5,
-      "gamma": 69.17002233619158
-    },
-    "opentv": {
-      "theta": 0.3,
-      "alpha": 1.0,
-      "gamma_quantile": 0.75,
-      "gamma": 29.12764946952036
-    },
-    "paytv": {
-      "theta": 0.7,
-      "alpha": 1.0,
-      "gamma_quantile": 0.5,
-      "gamma": 27.43006695968777
-    },
-    "print": {
       "theta": 0.5,
       "alpha": 2.0,
       "gamma_quantile": 0.5,
-      "gamma": 3.478405505939105e-08
+      "gamma": 39.551130510281446
+    },
+    "opentv": {
+      "theta": 0.3,
+      "alpha": 2.0,
+      "gamma_quantile": 0.25,
+      "gamma": 3.615188737551481
+    },
+    "paytv": {
+      "theta": 0.5,
+      "alpha": 1.0,
+      "gamma_quantile": 0.75,
+      "gamma": 32.9187417207359
+    },
+    "print": {
+      "theta": 0.7,
+      "alpha": 2.0,
+      "gamma_quantile": 0.75,
+      "gamma": 0.047184470167638146
     },
     "radio": {
       "theta": 0.3,
-      "alpha": 1.0,
-      "gamma_quantile": 0.75,
-      "gamma": 9.52692223164382
-    },
-    "tiktok": {
-      "theta": 0.7,
-      "alpha": 1.0,
-      "gamma_quantile": 0.5,
-      "gamma": 1.653636291841555
-    },
-    "twitter": {
-      "theta": 0.7,
-      "alpha": 2.0,
-      "gamma_quantile": 0.5,
-      "gamma": 0.7986760181687942
-    },
-    "youtube": {
-      "theta": 0.7,
       "alpha": 2.0,
       "gamma_quantile": 0.25,
-      "gamma": 3.118644592472566
+      "gamma": 0.5817292818552688
+    },
+    "tiktok": {
+      "theta": 0.3,
+      "alpha": 2.0,
+      "gamma_quantile": 0.75,
+      "gamma": 2.4314353099029016
+    },
+    "twitter": {
+      "theta": 0.3,
+      "alpha": 2.0,
+      "gamma_quantile": 0.25,
+      "gamma": 0.08068353525914483
+    },
+    "youtube": {
+      "theta": 0.3,
+      "alpha": 2.0,
+      "gamma_quantile": 0.5,
+      "gamma": 2.311892827753476
     }
   },
   "test_used_for_selection": false
