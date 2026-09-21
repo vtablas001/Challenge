@@ -1,7 +1,7 @@
 {
   "rmse_validacion_standard": 1674.662804885911,
-  "rmse_validacion_calibrated": 1639.8472196267237,
-  "standard_loss_pct": 2.1230993255037762,
+  "rmse_validacion_calibrated": 1639.8472196267276,
+  "standard_loss_pct": 2.1230993255035355,
   "selected_model": "Paso 3 - MMM estandar",
   "rule": "Prefer standard when its validation RMSE is at most 5% worse",
   "reference_levels": {

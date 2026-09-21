@@ -138,10 +138,7 @@ def integrate_tables(tables: dict[int, pd.DataFrame]) -> DataBundle:
     master = master.sort_values(PANEL_KEYS).reset_index(drop=True)
 
     master["trend"] = ((master["week"] - CALIBRATION_START).dt.days // 7).astype(float)
-    iso_week = master["week"].dt.isocalendar().week.astype(int)
-    master["week_sin"] = np.sin(2 * np.pi * iso_week / 52.0)
-    master["week_cos"] = np.cos(2 * np.pi * iso_week / 52.0)
-    master["week_of_year"] = iso_week.astype(str)
+    master["week_of_year"] = master["week"].dt.isocalendar().week.astype(str)
     master["series_id"] = master[SERIES_COLS].astype(str).agg(" | ".join, axis=1)
     master["log1p_volume_hl"] = np.log1p(master["volume_hl"].astype(float))
 

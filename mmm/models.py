@@ -123,11 +123,7 @@ class PanelLogModel:
 def control_columns(specification: ModelSpecification) -> tuple[list[str], list[str]]:
     numeric = [*BASE_NUMERIC_COLS, *EVENT_COLS, "trend"]
     categorical: list[str]
-    if specification.seasonality == "harmonic":
-        numeric.extend(["week_sin", "week_cos"])
-    elif specification.seasonality in {"week_indicators", "none"}:
-        pass
-    else:
+    if specification.seasonality not in {"week_indicators", "none"}:
         raise ValueError(f"Unknown seasonality: {specification.seasonality}")
 
     if specification.include_lag52:

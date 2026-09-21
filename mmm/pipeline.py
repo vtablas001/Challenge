@@ -41,13 +41,11 @@ from .models import (
     fit_panel_model,
 )
 from .transformations import (
-    LEGACY_INDIVIDUAL_PARAMETERS,
     PARAMETER_GRID,
     STANDARD_PARAMETERS,
     adstock_by_brand,
     complete_media_panel,
     hill_saturation,
-    legacy_individual_media_features,
     merge_media_features,
     raw_media_features,
     training_gamma,
@@ -56,7 +54,6 @@ from .transformations import (
 
 
 MEDIA_FEATURES = [f"media__{channel}" for channel in MEDIA_COLS]
-LEGACY_MEDIA_FEATURES = [f"media__{channel}" for channel in LEGACY_INDIVIDUAL_PARAMETERS]
 
 
 @dataclass
@@ -108,12 +105,6 @@ def _specifications() -> dict[str, ModelSpecification]:
         "A4 - MMM calibrado + FE por serie": ModelSpecification(
             "A4 - MMM calibrado + FE por serie", include_media=True, fixed_effects="series"
         ),
-        "A5 - MMM calibrado exploratorio individual": ModelSpecification(
-            "A5 - MMM calibrado exploratorio individual",
-            include_media=True,
-            seasonality="harmonic",
-            constrain_media=False,
-        ),
         "A6 - MMM calibrado + smearing subcanal": ModelSpecification(
             "A6 - MMM calibrado + smearing subcanal", include_media=True
         ),
@@ -131,7 +122,6 @@ def _fit_final_models(
     calibrated, _ = _attach_transformed(panel, bundle.media, parameters, VALIDATION_END)
     standard, _ = _attach_transformed(panel, bundle.media, STANDARD_PARAMETERS, VALIDATION_END)
     raw = merge_media_features(panel, raw_media_features(bundle.media))
-    legacy = merge_media_features(panel, legacy_individual_media_features(bundle.media))
     specs = _specifications()
     rows: list[dict] = []
     predictions: dict[str, tuple[pd.DataFrame, np.ndarray]] = {}
@@ -151,7 +141,6 @@ def _fit_final_models(
         "A2 - MMM calibrado + semanas": calibrated,
         "A3 - MMM calibrado + semanas + lag52": calibrated,
         "A4 - MMM calibrado + FE por serie": calibrated,
-        "A5 - MMM calibrado exploratorio individual": legacy,
         "A6 - MMM calibrado + smearing subcanal": calibrated,
     }
 
@@ -159,11 +148,7 @@ def _fit_final_models(
         data = datasets[name]
         train = data.loc[data["week"].between(development["week"].min(), VALIDATION_END)].copy()
         evaluation = data.loc[data["week"].between(TEST_START, TEST_END)].copy()
-        media_columns = (
-            LEGACY_MEDIA_FEATURES
-            if name.startswith("A5")
-            else MEDIA_FEATURES if specification.include_media else []
-        )
+        media_columns = MEDIA_FEATURES if specification.include_media else []
         smearing = "subchannel" if name.startswith("A6") else "global"
         model, prediction, evaluated = fit_and_predict(
             train,
@@ -180,9 +165,6 @@ def _fit_final_models(
     table["tipo"] = np.where(table["modelo"].str.startswith("Paso"), "principal", "apendice")
     table["paso"] = table["modelo"].str.split(" - ").str[0]
     table["estado"] = "Estimado"
-    table.loc[table["modelo"].str.startswith("A5"), "estado"] = (
-        "Reproduccion historica; no participa en seleccion"
-    )
     return table, predictions, fitted
 
 
@@ -203,7 +185,6 @@ def _backtest(
         calibrated, _ = _attach_transformed(panel, bundle.media, parameters, train_end)
         standard, _ = _attach_transformed(panel, bundle.media, STANDARD_PARAMETERS, train_end)
         raw = merge_media_features(panel, raw_media_features(bundle.media))
-        legacy = merge_media_features(panel, legacy_individual_media_features(bundle.media))
 
         naive_prediction, naive_eval = seasonal_naive(evaluation)
         metric = regression_metrics("Paso 0 - Estacional ingenuo", train, naive_eval, naive_prediction)
@@ -217,17 +198,11 @@ def _backtest(
                 data = calibrated
             elif name.startswith("A1"):
                 data = raw
-            elif name.startswith("A5"):
-                data = legacy
             else:
                 data = panel
             train_fold = data[data["week"] < start].copy()
             eval_fold = data[data["week"].between(start, end)].copy()
-            media_columns = (
-                LEGACY_MEDIA_FEATURES
-                if name.startswith("A5")
-                else MEDIA_FEATURES if specification.include_media else []
-            )
+            media_columns = MEDIA_FEATURES if specification.include_media else []
             _, prediction, evaluated = fit_and_predict(
                 train_fold,
                 eval_fold,
@@ -417,7 +392,7 @@ def run_pipeline(
         n_trials=n_trials,
         seed=seed,
         storage=optuna_storage,
-        study_name="mmm_joint_calibration_no_harmonics",
+        study_name="mmm_joint_calibration_main_v2",
     )
     parameter_path = output_dir / "hiperparametros_paso4.json"
     save_calibration(calibration, parameter_path)

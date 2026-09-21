@@ -20,24 +20,6 @@ STANDARD_PARAMETERS = {
     for channel in MEDIA_COLS
 }
 
-# Parameters selected by the original one-channel-at-a-time notebook procedure.
-# They are retained only to reproduce appendix A5 and never enter model selection.
-LEGACY_INDIVIDUAL_PARAMETERS = {
-    "cinema": {"theta": 0.7, "alpha": 2.0, "gamma": 4.09558},
-    "digitaldisplayandsearch": {"theta": 0.3, "alpha": 2.0, "gamma": 1.57745},
-    "digitalvideo": {"theta": 0.3, "alpha": 2.0, "gamma": 2.19739},
-    "facebook": {"theta": 0.3, "alpha": 2.0, "gamma": 3.00179},
-    "instagram": {"theta": 0.7, "alpha": 1.0, "gamma": 5.05011},
-    "localtv": {"theta": 0.5, "alpha": 2.0, "gamma": 4.23464},
-    "ooh": {"theta": 0.7, "alpha": 2.0, "gamma": 36.36367},
-    "opentv": {"theta": 0.3, "alpha": 2.0, "gamma": 7.61118},
-    "paytv": {"theta": 0.7, "alpha": 2.0, "gamma": 18.98492},
-    "radio": {"theta": 0.3, "alpha": 2.0, "gamma": 8.12315},
-    "tiktok": {"theta": 0.3, "alpha": 2.0, "gamma": 3.15838},
-    "youtube": {"theta": 0.7, "alpha": 2.0, "gamma": 4.34578},
-}
-
-
 def geometric_adstock(values: np.ndarray | pd.Series, theta: float) -> np.ndarray:
     values = np.nan_to_num(np.asarray(values, dtype=float), nan=0.0)
     result = np.zeros_like(values, dtype=float)
@@ -116,20 +98,6 @@ def raw_media_features(media: pd.DataFrame) -> pd.DataFrame:
     output = completed[MEDIA_KEYS].copy()
     for channel in MEDIA_COLS:
         output[f"media__{channel}"] = completed[channel].astype(float)
-    return output
-
-
-def legacy_individual_media_features(media: pd.DataFrame) -> pd.DataFrame:
-    """Reproduce the discarded individual calibration for appendix A5."""
-    completed = complete_media_panel(media)
-    output = completed[MEDIA_KEYS].copy()
-    for channel, params in LEGACY_INDIVIDUAL_PARAMETERS.items():
-        adstock = adstock_by_brand(completed, channel, params["theta"])
-        output[f"media__{channel}"] = hill_saturation(
-            adstock,
-            params["alpha"],
-            params["gamma"],
-        )
     return output
 
 

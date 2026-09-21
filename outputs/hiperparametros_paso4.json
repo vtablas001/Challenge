@@ -1,6 +1,6 @@
 {
   "objective": "mean expanding-window RMSE in hL",
-  "best_value": 1639.8472196267237,
+  "best_value": 1639.8472196267276,
   "validation_windows": [
     {
       "start": "2024-11-30",

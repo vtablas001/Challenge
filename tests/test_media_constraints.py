@@ -19,8 +19,6 @@ def test_media_coefficients_are_bounded_not_selected_by_sign():
             "evento_social": 0.0,
             "feriado": 0.0,
             "trend": 0.0,
-            "week_sin": 0.0,
-            "week_cos": 1.0,
             "brand": "Marca A",
             "region": "Region A",
             "subchannel": "Subcanal A",
@@ -39,13 +37,14 @@ def test_media_coefficients_are_bounded_not_selected_by_sign():
     assert np.isclose(model.coefficients["media__test"], 0.0)
 
 
-def test_main_specification_excludes_annual_harmonics_by_default():
+def test_supported_seasonality_is_explicit():
     numeric, categorical = control_columns(ModelSpecification("main"))
 
-    assert "week_sin" not in numeric
-    assert "week_cos" not in numeric
     assert "trend" in numeric
     assert categorical == ["brand", "region", "subchannel"]
+
+    with np.testing.assert_raises_regex(ValueError, "Unknown seasonality"):
+        control_columns(ModelSpecification("unsupported", seasonality="cyclical"))
 
 
 def test_brand_and_subchannel_reference_levels_are_explicit():

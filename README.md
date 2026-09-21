@@ -62,5 +62,3 @@ Optuna conserva el estudio local en `outputs/optuna_mmm.db`, archivo excluido de
 - `outputs/hiperparametros_paso4.json`: parámetros, gammas resueltos, semilla y ventanas.
 - `outputs/errores_por_segmento.csv`: error por marca y subcanal.
 - `outputs/figures/`: RMSE, contribuciones y curvas de respuesta.
-
-A5 reproduce el procedimiento individual anterior únicamente como comparación histórica; no participa en la selección del modelo final.
