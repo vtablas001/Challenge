@@ -1,11 +1,16 @@
 {
-  "rmse_validacion_standard": 1674.6628048859075,
+  "rmse_validacion_standard": 1674.662804885911,
   "rmse_validacion_calibrated": 1639.8472196267237,
-  "standard_loss_pct": 2.1230993255035546,
+  "standard_loss_pct": 2.1230993255037762,
   "selected_model": "Paso 3 - MMM estandar",
   "rule": "Prefer standard when its validation RMSE is at most 5% worse",
-  "paso4_rmse_gap_vs_naive_hl": 394.1658201517263,
+  "reference_levels": {
+    "brand": "Brand C",
+    "subchannel": "Subchannel B",
+    "media_business_comparator": "localtv"
+  },
+  "paso4_rmse_gap_vs_naive_hl": 394.16582015172537,
   "A4_rmse_gap_vs_naive_hl": -357.766632546149,
-  "A4_gap_reduction_vs_naive_pct": 190.76551396781025,
+  "A4_gap_reduction_vs_naive_pct": 190.76551396781048,
   "lag52_affected_series": 1
 }

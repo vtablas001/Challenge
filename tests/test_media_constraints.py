@@ -46,3 +46,26 @@ def test_main_specification_excludes_annual_harmonics_by_default():
     assert "week_cos" not in numeric
     assert "trend" in numeric
     assert categorical == ["brand", "region", "subchannel"]
+
+
+def test_brand_and_subchannel_reference_levels_are_explicit():
+    data = pd.DataFrame(
+        {
+            "trend": [0.0, 1.0, 2.0],
+            "brand": ["Brand A", "Brand B", "Brand C"],
+            "region": ["Region A", "Region B", "Region C"],
+            "subchannel": ["Subchannel A", "Subchannel B", "Subchannel C"],
+        }
+    )
+    from mmm.models import DesignEncoder
+
+    encoder = DesignEncoder(
+        numeric=["trend"],
+        categorical=["brand", "region", "subchannel"],
+    ).fit(data)
+
+    assert encoder.levels["brand"][0] == "Brand C"
+    assert encoder.levels["subchannel"][0] == "Subchannel B"
+    assert "brand[Brand C]" not in encoder.feature_names
+    assert "subchannel[Subchannel B]" not in encoder.feature_names
+    assert encoder.levels["region"][0] == "Region A"

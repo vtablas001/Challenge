@@ -29,6 +29,8 @@ La especificación principal excluye seno y coseno anual. La decisión se tomó 
 
 El MMM estándar pierde 2.12% de RMSE de validación frente al calibrado, dentro de la tolerancia predefinida de 5%; por parsimonia se prefiere el Paso 3 como especificación principal de medios. El Paso 4 se mantiene para la atribución calibrada pedida y el Paso 5 para pronóstico. A4, con efectos fijos por serie, se reporta como robustez y no altera una decisión fijada antes de observar prueba.
 
+Marca C y Subcanal B son las categorías de referencia de los efectos fijos. Los coeficientes de las demás marcas y subcanales se interpretan como diferencias frente a esas categorías. Los medios son predictores continuos y conservan un coeficiente propio; TV local se usa como comparador de negocio en los índices de eficiencia y ROI, donde toma el valor 1.00.
+
 El rezago anual tiene cinco observaciones faltantes en 2023, concentradas en una serie (Marca B, Región G, Subcanal A). Los modelos con `lag52` excluyen esas filas sin imputarlas.
 
 ## Ejecución

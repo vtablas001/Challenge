@@ -12,6 +12,12 @@ from scipy.optimize import nnls
 from .data import BASE_NUMERIC_COLS, EVENT_COLS
 
 
+REFERENCE_LEVELS = {
+    "brand": "Brand C",
+    "subchannel": "Subchannel B",
+}
+
+
 @dataclass(frozen=True)
 class ModelSpecification:
     name: str
@@ -38,10 +44,13 @@ class DesignEncoder:
         filled = numeric.fillna(self.medians)
         self.means = filled.mean()
         self.scales = filled.std(ddof=0).replace(0, 1.0).fillna(1.0)
-        self.levels = {
-            column: sorted(data[column].dropna().astype(str).unique().tolist())
-            for column in self.categorical
-        }
+        self.levels = {}
+        for column in self.categorical:
+            levels = sorted(data[column].dropna().astype(str).unique().tolist())
+            reference = REFERENCE_LEVELS.get(column)
+            if reference in levels:
+                levels = [reference, *[level for level in levels if level != reference]]
+            self.levels[column] = levels
         dummy_names = [
             f"{column}[{level}]"
             for column in self.categorical

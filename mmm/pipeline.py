@@ -34,7 +34,12 @@ from .evaluation import (
     seasonal_naive,
     summarize_backtest,
 )
-from .models import ModelSpecification, fit_and_predict, fit_panel_model
+from .models import (
+    REFERENCE_LEVELS,
+    ModelSpecification,
+    fit_and_predict,
+    fit_panel_model,
+)
 from .transformations import (
     LEGACY_INDIVIDUAL_PARAMETERS,
     PARAMETER_GRID,
@@ -448,6 +453,7 @@ def run_pipeline(
         "standard_loss_pct": standard_loss,
         "selected_model": "Paso 3 - MMM estandar" if standard_loss <= 5 else "Paso 4 - MMM calibrado conjunto",
         "rule": "Prefer standard when its validation RMSE is at most 5% worse",
+        "reference_levels": {**REFERENCE_LEVELS, "media_business_comparator": "localtv"},
     }
     model_table, predictions, _ = _fit_final_models(bundle, calibration.parameters)
     backtest_detail, backtest_summary = _backtest(bundle, calibration.parameters)
@@ -464,6 +470,22 @@ def run_pipeline(
     }
     error_detail = error_breakdown(selected_predictions)
     contributions, _, _, resolved = _attribution(bundle, calibration.parameters)
+    localtv_reference = (
+        contributions.loc[
+            contributions["channel"].eq("localtv"),
+            ["year", "incremental_hl_per_spend", "revenue_roi"],
+        ]
+        .set_index("year")
+    )
+    contributions["efficiency_index_vs_localtv"] = contributions.apply(
+        lambda row: row["incremental_hl_per_spend"]
+        / localtv_reference.at[row["year"], "incremental_hl_per_spend"],
+        axis=1,
+    )
+    contributions["roi_index_vs_localtv"] = contributions.apply(
+        lambda row: row["revenue_roi"] / localtv_reference.at[row["year"], "revenue_roi"],
+        axis=1,
+    )
     sensitivity = _sensitivity(bundle, calibration.parameters) if run_sensitivity else pd.DataFrame()
 
     naive_rmse = float(model_table.loc[model_table["paso"].eq("Paso 0"), "RMSE_hl"].iloc[0])
