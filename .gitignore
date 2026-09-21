@@ -20,3 +20,6 @@ mlflow.db
 # Working notebook copies
 Challenge AB Invenv - Víctor Tablas - Copy.ipynb
 Challenge AB Invenv - Víctor Tablas copy2.ipynb
+
+# Resumable local optimizer state
+outputs/optuna_mmm.db
