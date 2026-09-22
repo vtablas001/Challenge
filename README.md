@@ -27,6 +27,8 @@ El MMM estándar pierde 2.91% de RMSE de validación frente al calibrado, dentro
 
 Marca C y Subcanal B son las categorías de referencia de los efectos fijos. Los coeficientes de las demás marcas y subcanales se interpretan como diferencias frente a esas categorías. Los medios son predictores continuos y conservan un coeficiente propio; TV local se usa como comparador de negocio en los índices de eficiencia y ROI, donde toma el valor 1.00.
 
+Las contribuciones y cocientes de retorno son atribuciones condicionadas al modelo y al gasto histórico. No representan efectos causales ni el retorno marginal de aumentar presupuesto. Una decisión de inversión requiere ubicar el adstock reciente respecto de `gamma`, evaluar la pendiente local de Hill, incorporar costos e incertidumbre de los parámetros y considerar variables omitidas o asignación endógena del gasto. Por ello, los canales con asociaciones favorables se tratan como candidatos para pruebas incrementales con grupos de control.
+
 El rezago anual tiene cinco observaciones faltantes en 2023, concentradas en una serie (Marca B, Región G, Subcanal A). Los modelos con `lag52` excluyen esas filas sin imputarlas.
 
 ## Ejecución
@@ -52,8 +54,8 @@ Optuna conserva el estudio local en `outputs/optuna_mmm.db`, archivo excluido de
 ## Salidas
 
 - `outputs/tabla_modelos.csv`: prueba y backtesting de modelos principales y apéndices.
-- `outputs/contribuciones_roi.csv`: contribución y retorno por canal y año.
-- `outputs/sensibilidad_roi.csv`: rango de retorno en las 18 combinaciones por canal.
+- `outputs/contribuciones_roi.csv`: atribución modelada y cocientes históricos por canal y año; no equivalen a ROI causal o marginal.
+- `outputs/sensibilidad_roi.csv`: variación de la atribución modelada entre las 18 combinaciones por canal.
 - `outputs/hiperparametros_paso4.json`: parámetros, gammas resueltos, semilla y ventanas.
 - `outputs/errores_por_segmento.csv`: error por marca y subcanal.
 - `outputs/figures/`: RMSE, contribuciones y curvas de respuesta.
