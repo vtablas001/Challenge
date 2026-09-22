@@ -392,7 +392,7 @@ def run_pipeline(
         n_trials=n_trials,
         seed=seed,
         storage=optuna_storage,
-        study_name="mmm_joint_calibration_main_v3_no_trend",
+        study_name="mmm_joint_calibration_main_final",
     )
     parameter_path = output_dir / "hiperparametros_paso4.json"
     save_calibration(calibration, parameter_path)

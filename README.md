@@ -12,14 +12,6 @@ La variable dependiente es `log1p(volume_hl)` y las predicciones se retransforma
 
 La calibración conjunta usa 2,000 ensayos Optuna TPE y tres ventanas expansivas de ocho semanas dentro de validación. Ninguna decisión usa prueba. Los 14 canales entran simultáneamente y sus coeficientes se restringen a ser no negativos; el signo no es un criterio de selección.
 
-### Estacionalidad anual
-
-La especificación principal excluye seno y coseno anual. La decisión se tomó antes de consultar la prueba final, comparando tres modelos en las mismas ventanas de validación. Al retirarlos, el RMSE disminuyó 4.03% en venta base, 3.02% en el MMM estándar y 2.46% en el MMM calibrado con parámetros fijos. Aunque MAE y WAPE aumentaron cerca de 6%, se mantuvo la especificación más simple porque el criterio principal predefinido era RMSE y la dirección fue consistente en los tres modelos. Los indicadores de semana del año permanecen únicamente como robustez en A2 y A3.
-
-### Tendencia temporal
-
-La especificación principal tampoco incluye una tendencia lineal. La comparación previa a la prueba final mostró que retirarla reducía 1.80% el RMSE medio de las ventanas de validación del MMM estándar. Se conserva la evolución temporal en el análisis descriptivo, pero no se impone una trayectoria lineal común a todas las marcas, regiones y subcanales.
-
 ## Resultados finales
 
 | Paso | Modelo | R2 prueba | RMSE hL | MAE hL | WAPE | MASE agregado | RMSE backtest |
@@ -62,7 +54,6 @@ Optuna conserva el estudio local en `outputs/optuna_mmm.db`, archivo excluido de
 - `outputs/tabla_modelos.csv`: prueba y backtesting de modelos principales y apéndices.
 - `outputs/contribuciones_roi.csv`: contribución y retorno por canal y año.
 - `outputs/sensibilidad_roi.csv`: rango de retorno en las 18 combinaciones por canal.
-- `outputs/sensibilidad_seno_coseno_validacion.csv`: comparación previa a prueba de la especificación armónica frente a la simplificada.
 - `outputs/hiperparametros_paso4.json`: parámetros, gammas resueltos, semilla y ventanas.
 - `outputs/errores_por_segmento.csv`: error por marca y subcanal.
 - `outputs/figures/`: RMSE, contribuciones y curvas de respuesta.

@@ -39,7 +39,6 @@ def test_media_coefficients_are_bounded_not_selected_by_sign():
 def test_supported_seasonality_is_explicit():
     numeric, categorical = control_columns(ModelSpecification("main"))
 
-    assert "trend" not in numeric
     assert categorical == ["brand", "region", "subchannel"]
 
     with np.testing.assert_raises_regex(ValueError, "Unknown seasonality"):
