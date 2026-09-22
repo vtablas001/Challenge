@@ -6,4 +6,3 @@ Se adjuntan los entregables correspondientes a la consigna:
 * **Documento explicativo**: El mismo notebook cumple la función del documento breve, detallando el resumen del flujo de trabajo, las decisiones tomadas sobre las variables, los supuestos, los resultados y las conclusiones.
 * **Gráficos y tablas**: El notebook incluye las tablas consolidadas, estadísticas descriptivas y gráficos, así como la evolución temporal del volumen y facturación, que respaldan las conclusiones del análisis.
 
-Aprovecho para agradecer por el espacio y el ejercicio, lo he disfrutado mucho. 
