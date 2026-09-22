@@ -18,7 +18,6 @@ def test_media_coefficients_are_bounded_not_selected_by_sign():
             "evento_deportivo": 0.0,
             "evento_social": 0.0,
             "feriado": 0.0,
-            "trend": 0.0,
             "brand": "Marca A",
             "region": "Region A",
             "subchannel": "Subcanal A",
@@ -40,7 +39,7 @@ def test_media_coefficients_are_bounded_not_selected_by_sign():
 def test_supported_seasonality_is_explicit():
     numeric, categorical = control_columns(ModelSpecification("main"))
 
-    assert "trend" in numeric
+    assert "trend" not in numeric
     assert categorical == ["brand", "region", "subchannel"]
 
     with np.testing.assert_raises_regex(ValueError, "Unknown seasonality"):
@@ -50,7 +49,6 @@ def test_supported_seasonality_is_explicit():
 def test_brand_and_subchannel_reference_levels_are_explicit():
     data = pd.DataFrame(
         {
-            "trend": [0.0, 1.0, 2.0],
             "brand": ["Brand A", "Brand B", "Brand C"],
             "region": ["Region A", "Region B", "Region C"],
             "subchannel": ["Subchannel A", "Subchannel B", "Subchannel C"],
@@ -59,7 +57,7 @@ def test_brand_and_subchannel_reference_levels_are_explicit():
     from mmm.models import DesignEncoder
 
     encoder = DesignEncoder(
-        numeric=["trend"],
+        numeric=[],
         categorical=["brand", "region", "subchannel"],
     ).fit(data)
 

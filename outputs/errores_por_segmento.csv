@@ -8,30 +8,30 @@ Paso 0 - Estacional ingenuo,brand,Brand F,767,725.7568562542683,0.36622084273078
 Paso 0 - Estacional ingenuo,subchannel,Subchannel A,1330,294.06612967998655,0.6424330363097127
 Paso 0 - Estacional ingenuo,subchannel,Subchannel B,1336,55.72907733603422,0.3382577001909423
 Paso 0 - Estacional ingenuo,subchannel,Subchannel C,1336,549.2351966614327,0.33633490716905123
-Paso 1 - Venta base,brand,Brand A,167,222.21190583638375,0.5477330582943143
-Paso 1 - Venta base,brand,Brand B,767,191.22044841779731,0.5237656428483247
-Paso 1 - Venta base,brand,Brand C,767,64.78156636806298,0.6924915953767509
-Paso 1 - Venta base,brand,Brand D,767,761.5798307747351,0.7815703733125905
-Paso 1 - Venta base,brand,Brand E,767,279.25326984166463,0.6617155535176947
-Paso 1 - Venta base,brand,Brand F,767,1051.2823141048264,0.5304827528691705
-Paso 1 - Venta base,subchannel,Subchannel A,1330,306.1215515332614,0.6687699737653184
-Paso 1 - Venta base,subchannel,Subchannel B,1336,84.78121004544123,0.514594866813507
-Paso 1 - Venta base,subchannel,Subchannel C,1336,986.3069584930123,0.6039843428487083
-Paso 4 - MMM calibrado conjunto,brand,Brand A,167,200.65301408536354,0.49459226159498226
-Paso 4 - MMM calibrado conjunto,brand,Brand B,767,192.17299380703832,0.5263747286038813
-Paso 4 - MMM calibrado conjunto,brand,Brand C,767,63.78347168664341,0.68182232297376
-Paso 4 - MMM calibrado conjunto,brand,Brand D,767,746.6399380194434,0.7662383265774175
-Paso 4 - MMM calibrado conjunto,brand,Brand E,767,282.83265392466376,0.6701972236556205
-Paso 4 - MMM calibrado conjunto,brand,Brand F,767,1033.279217232412,0.5213982926238929
-Paso 4 - MMM calibrado conjunto,subchannel,Subchannel A,1330,302.69518839189965,0.6612845524459704
-Paso 4 - MMM calibrado conjunto,subchannel,Subchannel B,1336,85.07510092386481,0.5163786905801061
-Paso 4 - MMM calibrado conjunto,subchannel,Subchannel C,1336,969.8453328059807,0.5939037446260267
-Paso 5 - MMM calibrado + lag52,brand,Brand A,167,180.01768214571348,0.4437279596590406
-Paso 5 - MMM calibrado + lag52,brand,Brand B,767,130.14241631711806,0.35646881339404635
-Paso 5 - MMM calibrado + lag52,brand,Brand C,767,37.1606295370604,0.39723373601552536
-Paso 5 - MMM calibrado + lag52,brand,Brand D,767,413.0210557889049,0.42386235521824894
-Paso 5 - MMM calibrado + lag52,brand,Brand E,767,177.81232876685877,0.42134218739478196
-Paso 5 - MMM calibrado + lag52,brand,Brand F,767,741.6323548153986,0.37423170533818056
-Paso 5 - MMM calibrado + lag52,subchannel,Subchannel A,1330,237.96051136524648,0.5198616175366741
-Paso 5 - MMM calibrado + lag52,subchannel,Subchannel B,1336,59.55853233885942,0.36150126897335216
-Paso 5 - MMM calibrado + lag52,subchannel,Subchannel C,1336,587.07180528868,0.3595048939572096
+Paso 1 - Venta base,brand,Brand A,167,277.221093695227,0.6833259311730333
+Paso 1 - Venta base,brand,Brand B,767,253.7331815003198,0.6949922145883676
+Paso 1 - Venta base,brand,Brand C,767,91.10018971488138,0.9738281929824415
+Paso 1 - Venta base,brand,Brand D,767,953.7594828136898,0.9787945070378405
+Paso 1 - Venta base,brand,Brand E,767,345.9252624065952,0.8197007921121983
+Paso 1 - Venta base,brand,Brand F,767,896.5113356037094,0.45238447837338075
+Paso 1 - Venta base,subchannel,Subchannel A,1330,359.69653593400307,0.785812830541341
+Paso 1 - Venta base,subchannel,Subchannel B,1336,104.36319709760622,0.6334512739543308
+Paso 1 - Venta base,subchannel,Subchannel C,1336,1031.017880424057,0.6313639497430394
+Paso 4 - MMM calibrado conjunto,brand,Brand A,167,223.0413221677938,0.5497774975519343
+Paso 4 - MMM calibrado conjunto,brand,Brand B,767,255.2566585999374,0.6991651206193297
+Paso 4 - MMM calibrado conjunto,brand,Brand C,767,83.38071724185741,0.8913098145607262
+Paso 4 - MMM calibrado conjunto,brand,Brand D,767,921.0088965821974,0.945184257825864
+Paso 4 - MMM calibrado conjunto,brand,Brand E,767,345.7976974215862,0.8193985154917218
+Paso 4 - MMM calibrado conjunto,brand,Brand F,767,898.7493236311991,0.45351377926029035
+Paso 4 - MMM calibrado conjunto,subchannel,Subchannel A,1330,351.3776356522177,0.7676389035657963
+Paso 4 - MMM calibrado conjunto,subchannel,Subchannel B,1336,103.40826800890002,0.6276551593794654
+Paso 4 - MMM calibrado conjunto,subchannel,Subchannel C,1336,1012.3341732195884,0.61992261647382
+Paso 5 - MMM calibrado + lag52,brand,Brand A,167,162.60162249512052,0.40079888445962536
+Paso 5 - MMM calibrado + lag52,brand,Brand B,767,185.2253984251391,0.5073447985333283
+Paso 5 - MMM calibrado + lag52,brand,Brand C,767,46.797889896918,0.5002525757228194
+Paso 5 - MMM calibrado + lag52,brand,Brand D,767,499.4347382655491,0.5125442915608664
+Paso 5 - MMM calibrado + lag52,brand,Brand E,767,213.93812760311295,0.5069454929057786
+Paso 5 - MMM calibrado + lag52,brand,Brand F,767,644.8280774215399,0.3253837423577205
+Paso 5 - MMM calibrado + lag52,subchannel,Subchannel A,1330,282.9324348283812,0.6181097543436922
+Paso 5 - MMM calibrado + lag52,subchannel,Subchannel B,1336,64.80790826249248,0.3933633042383375
+Paso 5 - MMM calibrado + lag52,subchannel,Subchannel C,1336,586.8061024272837,0.3593421856170203

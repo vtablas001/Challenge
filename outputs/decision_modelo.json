@@ -1,7 +1,7 @@
 {
-  "rmse_validacion_standard": 1674.662804885911,
-  "rmse_validacion_calibrated": 1639.8472196267276,
-  "standard_loss_pct": 2.1230993255035355,
+  "rmse_validacion_standard": 1644.457211438048,
+  "rmse_validacion_calibrated": 1598.030647009191,
+  "standard_loss_pct": 2.9052361740212653,
   "selected_model": "Paso 3 - MMM estandar",
   "rule": "Prefer standard when its validation RMSE is at most 5% worse",
   "reference_levels": {
@@ -9,8 +9,8 @@
     "subchannel": "Subchannel B",
     "media_business_comparator": "localtv"
   },
-  "paso4_rmse_gap_vs_naive_hl": 394.16582015172537,
-  "A4_rmse_gap_vs_naive_hl": -357.766632546149,
-  "A4_gap_reduction_vs_naive_pct": 190.76551396781048,
+  "paso4_rmse_gap_vs_naive_hl": 293.9629125775301,
+  "A4_rmse_gap_vs_naive_hl": -170.34632727824055,
+  "A4_gap_reduction_vs_naive_pct": 157.94823768230054,
   "lag52_affected_series": 1
 }

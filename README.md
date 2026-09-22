@@ -16,18 +16,22 @@ La calibración conjunta usa 2,000 ensayos Optuna TPE y tres ventanas expansivas
 
 La especificación principal excluye seno y coseno anual. La decisión se tomó antes de consultar la prueba final, comparando tres modelos en las mismas ventanas de validación. Al retirarlos, el RMSE disminuyó 4.03% en venta base, 3.02% en el MMM estándar y 2.46% en el MMM calibrado con parámetros fijos. Aunque MAE y WAPE aumentaron cerca de 6%, se mantuvo la especificación más simple porque el criterio principal predefinido era RMSE y la dirección fue consistente en los tres modelos. Los indicadores de semana del año permanecen únicamente como robustez en A2 y A3.
 
+### Tendencia temporal
+
+La especificación principal tampoco incluye una tendencia lineal. La comparación previa a la prueba final mostró que retirarla reducía 1.80% el RMSE medio de las ventanas de validación del MMM estándar. Se conserva la evolución temporal en el análisis descriptivo, pero no se impone una trayectoria lineal común a todas las marcas, regiones y subcanales.
+
 ## Resultados finales
 
 | Paso | Modelo | R2 prueba | RMSE hL | MAE hL | WAPE | MASE agregado | RMSE backtest |
 |---|---|---:|---:|---:|---:|---:|---:|
 | 0 | Estacional ingenuo | 0.7841 | 1,005.11 | 299.69 | 0.3984 | 0.7403 | 988.36 |
-| 1 | Venta base | 0.5665 | 1,424.24 | 459.30 | 0.6106 | 1.1346 | 1,391.87 |
-| 2 | Venta base + lag52 | 0.7699 | 1,037.73 | 310.65 | 0.4129 | 0.7674 | 952.08 |
-| 3 | MMM estándar | 0.5775 | 1,406.06 | 449.42 | 0.5974 | 1.1102 | 1,359.51 |
-| 4 | MMM calibrado conjunto | 0.5816 | 1,399.28 | 452.76 | 0.6019 | 1.1185 | 1,356.93 |
-| 5 | MMM calibrado + lag52 | 0.8157 | 928.60 | 294.95 | 0.3921 | 0.7286 | 860.79 |
+| 1 | Venta base | 0.6287 | 1,318.07 | 498.57 | 0.6628 | 1.2316 | 1,297.43 |
+| 2 | Venta base + lag52 | 0.8620 | 803.62 | 308.70 | 0.4104 | 0.7626 | 790.78 |
+| 3 | MMM estándar | 0.6473 | 1,284.57 | 482.33 | 0.6412 | 1.1915 | 1,258.93 |
+| 4 | MMM calibrado conjunto | 0.6393 | 1,299.07 | 489.25 | 0.6504 | 1.2086 | 1,276.41 |
+| 5 | MMM calibrado + lag52 | 0.8574 | 816.95 | 311.56 | 0.4142 | 0.7697 | 804.89 |
 
-El MMM estándar pierde 2.12% de RMSE de validación frente al calibrado, dentro de la tolerancia predefinida de 5%; por parsimonia se prefiere el Paso 3 como especificación principal de medios. El Paso 4 se mantiene para la atribución calibrada pedida y el Paso 5 para pronóstico. A4, con efectos fijos por serie, se reporta como robustez y no altera una decisión fijada antes de observar prueba.
+El MMM estándar pierde 2.91% de RMSE de validación frente al calibrado, dentro de la tolerancia predefinida de 5%; por parsimonia se prefiere el Paso 3 como especificación principal de medios. El Paso 4 se mantiene para la atribución calibrada pedida y el Paso 5 para pronóstico. A4, con efectos fijos por serie, se reporta como robustez y no altera una decisión fijada antes de observar prueba.
 
 Marca C y Subcanal B son las categorías de referencia de los efectos fijos. Los coeficientes de las demás marcas y subcanales se interpretan como diferencias frente a esas categorías. Los medios son predictores continuos y conservan un coeficiente propio; TV local se usa como comparador de negocio en los índices de eficiencia y ROI, donde toma el valor 1.00.
 

@@ -1,6 +1,6 @@
 {
   "objective": "mean expanding-window RMSE in hL",
-  "best_value": 1639.8472196267276,
+  "best_value": 1598.030647009191,
   "validation_windows": [
     {
       "start": "2024-11-30",
@@ -17,19 +17,19 @@
   ],
   "parameters": {
     "cinema": {
-      "theta": 0.5,
-      "alpha": 1.0,
-      "gamma_quantile": 0.5
+      "theta": 0.7,
+      "alpha": 2.0,
+      "gamma_quantile": 0.25
     },
     "digitaldisplayandsearch": {
-      "theta": 0.5,
+      "theta": 0.3,
       "alpha": 2.0,
-      "gamma_quantile": 0.75
+      "gamma_quantile": 0.5
     },
     "digitalvideo": {
       "theta": 0.3,
       "alpha": 1.0,
-      "gamma_quantile": 0.75
+      "gamma_quantile": 0.5
     },
     "facebook": {
       "theta": 0.3,
@@ -37,18 +37,18 @@
       "gamma_quantile": 0.25
     },
     "instagram": {
-      "theta": 0.5,
+      "theta": 0.3,
       "alpha": 2.0,
       "gamma_quantile": 0.25
     },
     "localtv": {
       "theta": 0.3,
-      "alpha": 2.0,
+      "alpha": 1.0,
       "gamma_quantile": 0.25
     },
     "ooh": {
       "theta": 0.5,
-      "alpha": 2.0,
+      "alpha": 1.0,
       "gamma_quantile": 0.5
     },
     "opentv": {
@@ -57,8 +57,8 @@
       "gamma_quantile": 0.25
     },
     "paytv": {
-      "theta": 0.5,
-      "alpha": 1.0,
+      "theta": 0.7,
+      "alpha": 2.0,
       "gamma_quantile": 0.75
     },
     "print": {
@@ -69,20 +69,20 @@
     "radio": {
       "theta": 0.3,
       "alpha": 2.0,
-      "gamma_quantile": 0.25
+      "gamma_quantile": 0.5
     },
     "tiktok": {
-      "theta": 0.3,
-      "alpha": 2.0,
-      "gamma_quantile": 0.75
-    },
-    "twitter": {
-      "theta": 0.3,
-      "alpha": 2.0,
+      "theta": 0.5,
+      "alpha": 1.0,
       "gamma_quantile": 0.25
     },
+    "twitter": {
+      "theta": 0.7,
+      "alpha": 1.0,
+      "gamma_quantile": 0.5
+    },
     "youtube": {
-      "theta": 0.3,
+      "theta": 0.7,
       "alpha": 2.0,
       "gamma_quantile": 0.5
     }
@@ -92,22 +92,22 @@
   "recorded_trials": 2000,
   "resolved_for_development_fit": {
     "cinema": {
-      "theta": 0.5,
-      "alpha": 1.0,
-      "gamma_quantile": 0.5,
-      "gamma": 1.1384548485932834e-06
+      "theta": 0.7,
+      "alpha": 2.0,
+      "gamma_quantile": 0.25,
+      "gamma": 2.9472903542402623e-06
     },
     "digitaldisplayandsearch": {
-      "theta": 0.5,
+      "theta": 0.3,
       "alpha": 2.0,
-      "gamma_quantile": 0.75,
-      "gamma": 6.6289860614361
+      "gamma_quantile": 0.5,
+      "gamma": 2.3061226124086565
     },
     "digitalvideo": {
       "theta": 0.3,
       "alpha": 1.0,
-      "gamma_quantile": 0.75,
-      "gamma": 2.639798623346193
+      "gamma_quantile": 0.5,
+      "gamma": 1.2009779304008203
     },
     "facebook": {
       "theta": 0.3,
@@ -116,20 +116,20 @@
       "gamma": 2.3057143144659884
     },
     "instagram": {
-      "theta": 0.5,
+      "theta": 0.3,
       "alpha": 2.0,
       "gamma_quantile": 0.25,
-      "gamma": 2.726775834776434
+      "gamma": 1.8049337191870438
     },
     "localtv": {
       "theta": 0.3,
-      "alpha": 2.0,
+      "alpha": 1.0,
       "gamma_quantile": 0.25,
       "gamma": 0.19723580702121518
     },
     "ooh": {
       "theta": 0.5,
-      "alpha": 2.0,
+      "alpha": 1.0,
       "gamma_quantile": 0.5,
       "gamma": 39.551130510281446
     },
@@ -140,10 +140,10 @@
       "gamma": 3.615188737551481
     },
     "paytv": {
-      "theta": 0.5,
-      "alpha": 1.0,
+      "theta": 0.7,
+      "alpha": 2.0,
       "gamma_quantile": 0.75,
-      "gamma": 32.9187417207359
+      "gamma": 55.557798209749734
     },
     "print": {
       "theta": 0.7,
@@ -154,26 +154,26 @@
     "radio": {
       "theta": 0.3,
       "alpha": 2.0,
-      "gamma_quantile": 0.25,
-      "gamma": 0.5817292818552688
+      "gamma_quantile": 0.5,
+      "gamma": 3.430359902311033
     },
     "tiktok": {
-      "theta": 0.3,
-      "alpha": 2.0,
-      "gamma_quantile": 0.75,
-      "gamma": 2.4314353099029016
+      "theta": 0.5,
+      "alpha": 1.0,
+      "gamma_quantile": 0.25,
+      "gamma": 0.01578437908823819
     },
     "twitter": {
-      "theta": 0.3,
-      "alpha": 2.0,
-      "gamma_quantile": 0.25,
-      "gamma": 0.08068353525914483
+      "theta": 0.7,
+      "alpha": 1.0,
+      "gamma_quantile": 0.5,
+      "gamma": 0.7986760181687942
     },
     "youtube": {
-      "theta": 0.3,
+      "theta": 0.7,
       "alpha": 2.0,
       "gamma_quantile": 0.5,
-      "gamma": 2.311892827753476
+      "gamma": 6.2422983155724285
     }
   },
   "test_used_for_selection": false
